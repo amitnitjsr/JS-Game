@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var inr=1000;
+function myFunction() {
+	var n = [];
+	
+for(var i=0;i<3;i++){
+n.push(Math.floor(Math.random() * 9) + 0);
+}
+
+document.getElementById("three").innerHTML="<b>"+n[0]+" "+n[1]+" "+n[2]+"</b>";
+//show three number first
+
+document.getElementById("mybal").innerHTML="you have "+inr+"  INR";
+
+n.sort();
+//chech difference one this reason sort the array
+
+ inr-=100;
+if((n[1]-n[0])==1 && (n[2]-n[1])==1){
+	inr+=800;
+	document.getElementById("mybal").innerHTML="you have "+inr+"  INR";
+	
+document.getElementById("demo").innerHTML="<b>You have won 800 INR as the number are in sequence </b>";
+	}
+else if(n[0]==n[1] && n[1]==n[2]){
+	inr+=1000;
+	document.getElementById("mybal").innerHTML="you have "+inr+"  INR";
+	
+	document.getElementById("demo").innerHTML="<b>You have won 1000 INR as the number are equals</b>";
+	
+}
+else if(n[0]%2==0 && n[1]%2==0 && n[2]%2==0){
+     inr+=300;
+     document.getElementById("mybal").innerHTML="you have "+ inr+"  INR";
+	document.getElementById("demo").innerHTML="<b>You have won 300 INR as all the number are even</b>";
+	
+
+}
+else if(n[0]%2!=0 && n[1]%2!=0 && n[2]%2!=0){
+	 inr+=300;
+     document.getElementById("mybal").innerHTML="you have "+ inr+"  INR";
+	document.getElementById("demo").innerHTML="<b>You have won 300 INR as all the number are odd</b>";
+}
+	
+  else{
+  
+     
+	document.getElementById("mybal").innerHTML="you have "+ inr+"  INR";
+	document.getElementById("demo").innerHTML="<b>You were not Lucky this Time</b>";
+	
+}
+
+
+if(inr<100){
+
+	document.getElementById("over").innerHTML="<b>Game Over</b>";
+	//hide start button
+	document.getElementById("start").style.display="none";
+}
+
+}
+</script>
+</head>
+<body>
+<h1>Game</h1><br>
+<b id="mybal">you have 1000 INR</b><br><br>
+<p id="over"></p>
+
+<button onclick="myFunction()" id="start"><b>Start</b></button>
+<b><p id="three"></p></b><br>
+<p id="demo"></p><br>
+
+
+
+</body>
+</html>
